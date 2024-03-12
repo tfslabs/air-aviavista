@@ -1,6 +1,6 @@
 > ℹ️
 >
-> Fun fact: This repo has no wiki because the wiki itself is the wiki :) (@shiroinekotfs)
+> Fun fact: This repo doesn't need a wiki page because it is already a wiki :)
 
 <p>
   <img align=center src="https://github.com/tfslabs/air-aviavista/assets/115929530/7e5c20f3-ef5b-4f1c-bfd9-eeadf146a064" />

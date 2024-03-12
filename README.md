@@ -37,7 +37,7 @@ Also, in each of the destinations, the Air AviaVista always has an owned and sel
 
 ### Destinations
 
-In 2023, the Air AviaVista has flown over 700,000 nautical miles (1,296,400 kilometers) with 0 minor or major accidents, and very few delays (only 2 delays/1000 flights, mostly caused by the weather). That amazing achievement is made by choosing a low ratio of the flight routes flying over high-terrain/extreme weather routes or no-rich ground service airports , and destinations run by the most trusted governments and friendly airport operators:
+In 2023, the Air AviaVista has flown over 700,000 nautical miles (1,296,400 kilometers) with 0 minor or major accidents, and very few delays (only 2 delays/1000 flights, mostly caused by the weather). That amazing achievement is made by choosing a low ratio of the flight routes flying over high-terrain/extreme weather routes or no-rich ground service airports, and destinations run by the most trusted governments and friendly airport operators:
 
 * Miami International Airport (ICAO: KMIA)
 * Fort Lauderdale–Hollywood International Airport (ICAO: KFLL)

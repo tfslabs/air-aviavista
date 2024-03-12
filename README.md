@@ -5,7 +5,7 @@
 <p>
   <img align=center src="https://github.com/tfslabs/air-aviavista/assets/115929530/7e5c20f3-ef5b-4f1c-bfd9-eeadf146a064" />
   <br>
-  <p align="center" dir="auto">A flight operated by Air AviaVista, using Boeing 737 Max 8 (default livery, thanks to Shiroi Neko for this great flight on Volanta)</p>
+  <p align="center" dir="auto">A flight operated by Air AviaVista, using Boeing 737 Max 8</p>
 </p>
 
 # Air AviaVista

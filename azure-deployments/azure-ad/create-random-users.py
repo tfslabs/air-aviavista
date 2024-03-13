@@ -7,7 +7,7 @@ import names, string, secrets
 class basic_info:
     
     def generate_password(self, length=randint(10, 16)):
-        characters = string.ascii_letters + string.digits + '!_?@#-'
+        characters = string.ascii_letters + string.digits + '@_'
         password = ''.join(secrets.choice(characters) for _ in range(length))
         return password
     
@@ -127,14 +127,18 @@ The employee info must be following this format:
 ----->
 '''
 
-def append_array_to_file(array, filename):
-    with open(filename, 'a') as file:
-        file.write('version:v1.0,,,,,,,,,,,,,,,,\n')
-        file.write('Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Block sign in (Yes/No) [accountEnabled] Required,First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [physicalDeliveryOfficeName],City [city],ZIP or postal code [postalCode],Office phone [telephoneNumber],Mobile phone [mobile]\n')
+def append_array_to_file(array):
+    with open('UserCreateTemplate.csv', 'a') as file:
+        file.write('\n')
         for element in array:
             file.write(str(element) + ',')
 
 get_user_input = int(input("How many user you want to create?: "))
+
+with open('UserCreateTemplate.csv', 'a') as file:
+    file.write('version:v1.0,,,,,,,,,,,,,,,,\n')
+    file.write('Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Block sign in (Yes/No) [accountEnabled] Required,First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [physicalDeliveryOfficeName],City [city],ZIP or postal code [postalCode],Office phone [telephoneNumber],Mobile phone [mobile]')
+
 for i in range(0, get_user_input + 1):
     employee_info = basic_info().basic_info + EmploymentInfo().employment_info
-    append_array_to_file(employee_info, 'UserCreateTemplate.csv')
+    append_array_to_file(employee_info)

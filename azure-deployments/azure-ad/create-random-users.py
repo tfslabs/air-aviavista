@@ -19,7 +19,8 @@ class basic_info:
         self.display_name = self.first_name + " " + self.last_name
         self.email = self.first_name.lower() + self.last_name.lower() + "@tfslabs.onmicrosoft.com"
         self.password = self.generate_password()
-        self.basic_info = [self.first_name, self.last_name, self.display_name, self.email, self.password]
+        self.accountEnable = "Yes"
+        self.basic_info = [self.display_name, self.email, self.password, self.accountEnable, self.first_name, self.last_name]
 
 class employment_info:
     

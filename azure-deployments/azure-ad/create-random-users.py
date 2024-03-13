@@ -7,7 +7,7 @@ import names, string, secrets
 class basic_info:
     
     def generate_password(self, length=randint(10, 16)):
-        characters = string.ascii_letters + string.digits + string.punctuation
+        characters = string.ascii_letters + string.digits + '!_?@#-'
         password = ''.join(secrets.choice(characters) for _ in range(length))
         return password
     
@@ -18,7 +18,14 @@ class basic_info:
         self.email = self.first_name.lower() + self.last_name.lower() + "@tfslabs.onmicrosoft.com"
         self.password = self.generate_password()
         self.accountEnable = "Yes"
-        self.basic_info = [self.display_name, self.email, self.password, self.accountEnable, self.first_name, self.last_name]
+        self.basic_info = [
+            self.display_name, 
+            self.email, 
+            self.password, 
+            self.accountEnable, 
+            self.first_name, 
+            self.last_name
+        ]
 
 class EmploymentInfo:
     def __init__(self):
@@ -46,15 +53,15 @@ class EmploymentInfo:
         self.employment_info = [
             self.job_title,      #7
             self.department,     #8
-            self.usage_location,  #9
-            '',                  #10
-            '',                  #11
-            self.usage_location,  #12
-            '',                  #13
+            self.usage_location, #9
+            ' ',                 #10
+            ' ',                 #11
+            self.usage_location, #12
+            ' ',                 #13
             self.city,           #14
-            '',                  #15
-            '',                  #16
-            ''                   #17
+            ' ',                 #15
+            ' ',                 #16
+            ' '                  #17
         ]
 
     def _get_department(self, department_number):
@@ -93,9 +100,7 @@ class EmploymentInfo:
         ]
         return cities[country_number][city_index]
 
-for i in range(0, 123):
-    employee_info = basic_info().basic_info + EmploymentInfo().employment_info
-    print(employee_info)
+
 '''
 The employee info must be following this format:
 <----- Basic Info
@@ -121,3 +126,14 @@ The employee info must be following this format:
 17. mobile
 ----->
 '''
+
+def append_array_to_file(array, filename):
+    with open(filename, 'a') as file:
+        file.write('\n')
+        for element in array:
+            file.write(str(element) + ',')
+
+get_user_input = int(input("How many user you want to create?: "))
+for i in range(0, get_user_input + 1):
+    employee_info = basic_info().basic_info + EmploymentInfo().employment_info
+    append_array_to_file(employee_info, 'UserCreateTemplate.csv')

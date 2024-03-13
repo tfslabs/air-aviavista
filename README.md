@@ -42,7 +42,7 @@ In 2023, the Air AviaVista has flown over 700,000 nautical miles (1,296,400 kilo
 * Miami International Airport (ICAO: KMIA)
 * Fort Lauderdale–Hollywood International Airport (ICAO: KFLL)
 * Boston Logan International Airport (ICAO: KBOS)
-* Boston Logan International Airport (ICAO: KSFO)
+* San Francisco International Airport  (ICAO: KSFO)
 * Heathrow Airport (ICAO: EGLL)
 * Paris Charles de Gaulle Airport (ICAO: LFPG)
 

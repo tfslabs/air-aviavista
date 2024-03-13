@@ -22,6 +22,14 @@ class basic_info:
 
 class employment_info:
     
+    def cities(self, countryNumber, cityName):
+        cities = [
+            ['Miami', 'Boston', 'San Francisco', 'Broward County'], # US
+            ['London'], # UK
+            ['Paris'] # France
+        ]
+        return cities[countryNumber][cityName]
+    
     def usageLocation(self, countryNumber):
         country = [
             'United States',
@@ -52,18 +60,40 @@ class employment_info:
     
     def __init__(self):
         self.department_number = randint(0, 4)
-        self.department = self.department(self.department_number)
+        self.department = self.department(self.department_number) #8
         
         if self.department_number == 0:
-            self.jobTitle = self.job_title(0, randint(0, 3))
+            self.jobTitle = self.job_title(0, randint(0, 3)) #7
         elif self.department_number == 1:
-            self.jobTitle = self.job_title(1, randint(0, 2))
+            self.jobTitle = self.job_title(1, randint(0, 2)) #7
         else:
-            self.jobTitle = self.job_title(self.department_number, randint(0, 1))
+            self.jobTitle = self.job_title(self.department_number, randint(0, 1)) #7
         
         self.usageLocationNumber = randint(0, 2)
-        self.usageLocation = self.usageLocation(self.usageLocationNumber)
+        self.usageLocation = self.usageLocation(self.usageLocationNumber) #9, 12
+        
+        if self.usageLocationNumber == 0:
+            self.city = self.cities(0, randint(0, 3)) #14
+        else:
+            self.city = self.cities(self.usageLocationNumber, 0) #14
 
+        '''
+        Unused attributes: #10, #11, #13, #15, #16, #17
+        '''
+        
+        self.employment_info = [
+            self.job_title,      #7
+            self.department,     #8
+            self.usageLocation,  #9
+            '',                  #10
+            '',                  #11
+            self.usageLocation,  #12
+            '',                  #13
+            self.city,           #14
+            '',                  #15
+            '',                  #16
+            ''                   #17
+        ]
     
 employee_info = basic_info().basic_info + employment_info().employment_info
 '''

@@ -20,82 +20,82 @@ class basic_info:
         self.accountEnable = "Yes"
         self.basic_info = [self.display_name, self.email, self.password, self.accountEnable, self.first_name, self.last_name]
 
-class employment_info:
-    
-    def cities(self, countryNumber, cityName):
-        cities = [
-            ['Miami', 'Boston', 'San Francisco', 'Broward County'], # US
-            ['London'], # UK
-            ['Paris'] # France
-        ]
-        return cities[countryNumber][cityName]
-    
-    def usageLocation(self, countryNumber):
-        country = [
-            'United States',
-            'United Kingdom',
-            'France'
-        ]
-        return country[countryNumber]
-    
-    def department(self,department_number):
-        departments = [
-            'In-Flight Department',
-            'Administrative Department',
-            'Customer Services Department',
-            'Maintaince Department',
-            'Scheduling and Safety Department'
-        ]
-        return departments[department_number]
-    
-    def job_title(self, department_number, role_number):
-        roles = [
-            ['Captain', 'First Officer', 'Second Officer', 'Flight Attendant'], # In-Flight Department
-            ['Finance Operator', 'Human Resources', 'Advertisement Manager'],   # Administrative Department
-            ['Check-in Personel', 'Customer Service'],                          # Customer Services Department
-            ['Inspector', 'Maintainer'],                                        # Maintaince Department
-            ['Flight Scheduling Manager', 'Payload Manager']                    # Scheduling and Safety Department
-        ]
-        return roles[department_number][role_number]
-    
+class EmploymentInfo:
     def __init__(self):
         self.department_number = randint(0, 4)
-        self.department = self.department(self.department_number) #8
-        
-        if self.department_number == 0:
-            self.jobTitle = self.job_title(0, randint(0, 3)) #7
-        elif self.department_number == 1:
-            self.jobTitle = self.job_title(1, randint(0, 2)) #7
-        else:
-            self.jobTitle = self.job_title(self.department_number, randint(0, 1)) #7
-        
-        self.usageLocationNumber = randint(0, 2)
-        self.usageLocation = self.usageLocation(self.usageLocationNumber) #9, 12
-        
-        if self.usageLocationNumber == 0:
-            self.city = self.cities(0, randint(0, 3)) #14
-        else:
-            self.city = self.cities(self.usageLocationNumber, 0) #14
+        self.department = self._get_department(self.department_number)
 
-        '''
-        Unused attributes: #10, #11, #13, #15, #16, #17
-        '''
+        if self.department_number == 0:
+            role_position = randint(0, 3)
+            self.job_title = self._get_job_title(0, role_position)
+        elif self.department_number == 1:
+            role_position = randint(0, 2)
+            self.job_title = self._get_job_title(1, role_position)
+        else:
+            role_position = randint(0, 1)
+            self.job_title = self._get_job_title(self.department_number, role_position)
+
+        self.usage_location_number = randint(0, 2)
+        self.usage_location = self._get_usage_location(self.usage_location_number)
+
+        if self.usage_location_number == 0:
+            self.city = self._get_city(0, randint(0, 3))
+        else:
+            self.city = self._get_city(self.usage_location_number, 0)
         
         self.employment_info = [
             self.job_title,      #7
             self.department,     #8
-            self.usageLocation,  #9
+            self.usage_location,  #9
             '',                  #10
             '',                  #11
-            self.usageLocation,  #12
+            self.usage_location,  #12
             '',                  #13
             self.city,           #14
             '',                  #15
             '',                  #16
             ''                   #17
         ]
-    
-employee_info = basic_info().basic_info + employment_info().employment_info
+
+    def _get_department(self, department_number):
+        departments = [
+            'In-Flight Department',
+            'Administrative Department',
+            'Customer Services Department',
+            'Maintenance Department',
+            'Scheduling and Safety Department'
+        ]
+        return departments[department_number]
+
+    def _get_job_title(self, department_number, role_number):
+        roles = [
+            ['Captain', 'First Officer', 'Second Officer', 'Flight Attendant'],  # In-Flight Department
+            ['Finance Operator', 'Human Resources', 'Advertisement Manager'],  # Administrative Department
+            ['Check-in Personnel', 'Customer Service'],  # Customer Services Department
+            ['Inspector', 'Maintainer'],  # Maintenance Department
+            ['Flight Scheduling Manager', 'Payload Manager']  # Scheduling and Safety Department
+        ]
+        return roles[department_number][role_number]
+
+    def _get_usage_location(self, country_number):
+        countries = [
+            'United States',
+            'United Kingdom',
+            'France'
+        ]
+        return countries[country_number]
+
+    def _get_city(self, country_number, city_index):
+        cities = [
+            ['Miami', 'Boston', 'San Francisco', 'Broward County'],  # US
+            ['London'],  # UK
+            ['Paris']  # France
+        ]
+        return cities[country_number][city_index]
+
+for i in range(0, 123):
+    employee_info = basic_info().basic_info + EmploymentInfo().employment_info
+    print(employee_info)
 '''
 The employee info must be following this format:
 <----- Basic Info

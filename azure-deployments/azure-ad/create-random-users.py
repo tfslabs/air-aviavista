@@ -129,7 +129,8 @@ The employee info must be following this format:
 
 def append_array_to_file(array, filename):
     with open(filename, 'a') as file:
-        file.write('\n')
+        file.write('version:v1.0,,,,,,,,,,,,,,,,\n')
+        file.write('Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Block sign in (Yes/No) [accountEnabled] Required,First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [physicalDeliveryOfficeName],City [city],ZIP or postal code [postalCode],Office phone [telephoneNumber],Mobile phone [mobile]\n')
         for element in array:
             file.write(str(element) + ',')
 

@@ -4,33 +4,10 @@ from random import randint
 cs('pip install names')
 import names, string, secrets
 
-class basic_info:
-    
-    def generate_password(self, length=randint(10, 16)):
-        characters = string.ascii_letters + string.digits + '@_'
-        password = ''.join(secrets.choice(characters) for _ in range(length))
-        return password
-    
-    def __init__(self) -> None:
-        self.first_name = names.get_first_name() # First Name
-        self.last_name = names.get_last_name() # Last Name
-        self.display_name = self.first_name + " " + self.last_name
-        self.email = self.first_name.lower() + self.last_name.lower() + "@airaviavista.onmicrosoft.com"
-        self.password = self.generate_password()
-        self.accountEnable = "Yes"
-        self.basic_info = [
-            self.display_name,  #1
-            self.email,         #2
-            self.password,      #3
-            self.accountEnable, #4
-            self.first_name,    #5
-            self.last_name      #6
-        ]
-
 class EmploymentInfo:
     def __init__(self):
         self.department_number = randint(0, 4)
-        self.department = self._get_department(self.department_number)
+        self.department, self.departmentCode = self._get_department(self.department_number)
 
         if self.department_number == 0:
             role_position = randint(0, 3)
@@ -50,18 +27,32 @@ class EmploymentInfo:
         else:
             self.city = self._get_city(self.usage_location_number, 0)
         
+        
+        self.first_name = names.get_first_name() # First Name
+        self.last_name = names.get_last_name() # Last Name
+        self.display_name = self.first_name + " " + self.last_name
+        self.email = self.first_name.lower() + self.last_name.lower() + '__' + self.departmentCode + "@airaviavista.onmicrosoft.com"
+        self.password = self.generate_password()
+        self.accountEnable = "Yes"
+        
         self.employment_info = [
+            self.display_name,   #1
+            self.email,          #2
+            self.password,       #3
+            self.accountEnable,  #4
+            self.first_name,     #5
+            self.last_name,      #6
             self.job_title,      #7
             self.department,     #8
             self.usage_location, #9
-            ' ',                 #10
-            ' ',                 #11
+            '',                  #10
+            '',                  #11
             self.usage_location, #12
-            ' ',                 #13
+            '',                  #13
             self.city,           #14
-            ' ',                 #15
-            ' ',                 #16
-            ' '                  #17
+            '',                  #15
+            '',                  #16
+            ''                   #17
         ]
 
     def _get_department(self, department_number):
@@ -72,7 +63,14 @@ class EmploymentInfo:
             'Maintenance Department',
             'Scheduling and Safety Department'
         ]
-        return departments[department_number]
+        departmentCode = [
+            'IFD',
+            'ADe',
+            'CSD',
+            'MDe',
+            'SSDe'
+        ]
+        return departments[department_number], departmentCode[department_number]
 
     def _get_job_title(self, department_number, role_number):
         roles = [
@@ -100,6 +98,10 @@ class EmploymentInfo:
         ]
         return cities[country_number][city_index]
 
+    def generate_password(self, length=randint(10, 16)):
+        characters = string.ascii_letters + string.digits + '@_+=<>'
+        password = ''.join(secrets.choice(characters) for _ in range(length))
+        return password
 
 '''
 The employee info must be following this format:
@@ -140,5 +142,5 @@ with open('UserCreateTemplate.csv', 'a') as file:
     file.write('Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Block sign in (Yes/No) [accountEnabled] Required,First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [physicalDeliveryOfficeName],City [city],ZIP or postal code [postalCode],Office phone [telephoneNumber],Mobile phone [mobile]')
 
 for i in range(0, get_user_input + 1):
-    employee_info = basic_info().basic_info + EmploymentInfo().employment_info
+    employee_info = EmploymentInfo().employment_info
     append_array_to_file(employee_info)

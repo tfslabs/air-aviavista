@@ -30,7 +30,7 @@ class EmploymentInfo:
         
         self.first_name = names.get_first_name() # First Name
         self.last_name = names.get_last_name() # Last Name
-        self.display_name = self.first_name + " " + self.last_name
+        self.display_name = self.first_name + " " + self.last_name + '(' + self.department + ')'
         self.email = self.first_name.lower() + self.last_name.lower() + '__' + self.departmentCode + "@airaviavista.onmicrosoft.com"
         self.password = self.generate_password()
         self.accountEnable = "Yes"

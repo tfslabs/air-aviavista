@@ -15,16 +15,16 @@ class basic_info:
         self.first_name = names.get_first_name() # First Name
         self.last_name = names.get_last_name() # Last Name
         self.display_name = self.first_name + " " + self.last_name
-        self.email = self.first_name.lower() + self.last_name.lower() + "@tfslabs.onmicrosoft.com"
+        self.email = self.first_name.lower() + self.last_name.lower() + "@airaviavista.onmicrosoft.com"
         self.password = self.generate_password()
         self.accountEnable = "Yes"
         self.basic_info = [
-            self.display_name, 
-            self.email, 
-            self.password, 
-            self.accountEnable, 
-            self.first_name, 
-            self.last_name
+            self.display_name,  #1
+            self.email,         #2
+            self.password,      #3
+            self.accountEnable, #4
+            self.first_name,    #5
+            self.last_name      #6
         ]
 
 class EmploymentInfo:

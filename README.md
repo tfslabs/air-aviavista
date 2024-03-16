@@ -28,10 +28,9 @@ The headquarters is located in Miami Intl. Airport, Miami, Florida, United State
 
 Air AviaVista is the most-rich aircraft operating party, as well as the 5-star ranking airline ever! The fleet of Air AviaVista includes:
 
-* 3 [Airbus A350-1000](https://en.wikipedia.org/wiki/Airbus_A350)
+* 2 [Airbus A350-900](https://en.wikipedia.org/wiki/Airbus_A350)
 * 4 [Airbus A320neo (with both CFM and PW1000G configurations)](https://en.wikipedia.org/wiki/Airbus_A320neo_family)
-* 2 [Boeing 737 Max 8](https://en.wikipedia.org/wiki/Boeing_737_MAX)
-* 1 [Boeing 787-9 Dreamliner (GEnx-1B engine only)](https://en.wikipedia.org/wiki/Boeing_787_Dreamliner)
+* 4 [Boeing 737 Max 8](https://en.wikipedia.org/wiki/Boeing_737_MAX)
 
 Also, in each of the destinations, the Air AviaVista always has an owned and self-operating hangar and full-rich the engineers. The fleet is managed by a team of experienced professionals with expertise in aviation, software development, and DevOps practices.
 
